@@ -1,0 +1,13 @@
+{{- with .Values.website }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .name }}
+spec:
+  selector:
+    app: {{ .name }}
+  type: {{ .service.type }}
+  ports:
+    - port: 80
+      targetPort: 8080
+{{- end }}

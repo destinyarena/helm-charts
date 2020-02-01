@@ -1,0 +1,70 @@
+# Default values for destinyarena.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+# Discord Bot
+bot:
+  name: bot
+  replicas: 1
+  image: destinyarena/bot:latest
+
+  service:
+    type: ClusterIP
+
+  secret: bot-secrets
+  secrets:
+    - name: AUTH_TOKEN
+      value: auth-token
+    - name: DISCORD_TOKEN
+      value: discord-token
+    - name: FACEIT_USER_TOKEN
+      value: faceit-user-token
+    - name: FACEIT_API_TOKEN
+      value: faceit-api-token
+
+# API
+api:
+  name: api
+  replicas: 2
+  image: destinyarena/api:latest
+
+  service:
+    type: LoadBalancer
+
+  secret: api-secrets
+  secrets:
+    - name: SECRET_DISCORD
+      value: discord
+    - name: SECRET_FACEIT
+      value: faceit
+    - name: SECRET_FACEIT_API_KEY
+      value: faceit-api-key
+    - name: SECRET_BUNGIE
+      value: bungie
+    - name: SECRET_BUNGIE_API_KEY
+      value: bungie-api-key
+    - name: SECRET_JWT
+      value: jwt
+    - name: SECRET_API_KEY
+      value: api-key
+    - name: DB_PASSWORD
+      value: db-password
+
+# Website
+website:
+  name: website
+  replicas: 2
+  image: destinyarena/website:latest
+
+  service:
+    type: LoadBalancer
+
+
+ingress:
+  name: destinyarena
+  host: destinyarena.app
+  paths:
+    - service: website
+      path: "/"
+    - service: api
+      path: "/api/*"
