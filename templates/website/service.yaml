@@ -6,7 +6,8 @@ metadata:
 spec:
   selector:
     app: {{ .name }}
-  type: {{ .service.type }}
+  type: LoadBalancer
+  externalTrafficPolicy: Local
   ports:
     - port: 80
       targetPort: 8080
