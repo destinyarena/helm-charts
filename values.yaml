@@ -65,6 +65,6 @@ ingress:
   host: destinyarena.app
   paths:
     - service: api
-      path: "/api/*"
+      path: "/api/(.+)"
     - service: website
-      path: "/"
+      path: "/(.+)"
