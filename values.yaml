@@ -39,6 +39,8 @@ api:
       value: faceit
     - name: SECRET_FACEIT_API_KEY
       value: faceit-api-key
+    - name: SECRET_FACEIT_USER_KEY
+      value: faceit-user-key
     - name: SECRET_BUNGIE
       value: bungie
     - name: SECRET_BUNGIE_API_KEY
@@ -47,7 +49,7 @@ api:
       value: jwt
     - name: SECRET_API_KEY
       value: api-key
-    - name: DB_PASSWORD
+    - name: SECRET_DB_PASSWORD
       value: db-password
 
 # Website
@@ -59,13 +61,34 @@ website:
   service:
     type: LoadBalancer
 
+# Users gRPC
+profiles:
+  name: profiles
+  replicas: 2
+  image: destinyarena/profiles:latest
+  secret: profiles-secrets
+  secrets:
+    - name: SECRET_DB_PASSWORD
+      value: db-password
+
+# Faceit gRPC
+faceit:
+  name: faceit
+  replicas: 2
+  image: destinyarena/faceit:latest
+  secret: faceit-secrets
+  secrets:
+    - name: FACEIT_USER_TOKEN
+      value: faceit-user-key
+    - name: FACEIT_API_TOKEN
+      value: faceit-api-key
 
 ingress:
   name: destinyarena
   paths:
-    - path: "/"
-      service: website
-      port: 80
-    - path: "/api/"
+    - path: "/api/*"
       service: api
+      port: 80
+    - path: "/*"
+      service: website
       port: 80
