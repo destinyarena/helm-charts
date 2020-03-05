@@ -1,4 +1,4 @@
-{{- with .Values.api }}
+{{- with .Values.bot }}
 apiVersion: v1
 kind: Service
 metadata:
@@ -6,9 +6,8 @@ metadata:
 spec:
   selector:
     app: {{ .name }}
-  type: LoadBalancer
-  externalTrafficPolicy: Local
   ports:
-    - port: 80
+    - name: tcp-bot
+      port: 80
       targetPort: 8080
 {{- end }}

@@ -22,6 +22,9 @@ bot:
     - name: FACEIT_API_TOKEN
       value: faceit-api-token
 
+tls:
+  enabled: false
+
 # API
 api:
   name: api
@@ -85,10 +88,11 @@ faceit:
 
 ingress:
   name: destinyarena
+  host: destinyarena.app
   paths:
-    - path: "/api/*"
+    - path: "/api/"
       service: api
       port: 80
-    - path: "/*"
+    - path: "/"
       service: website
       port: 80

@@ -1,8 +1,8 @@
-{{- with .Values.api }}
+{{- with .Values.website }}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .name }}-deployment
+  name: {{ .name }}
   labels:
     app: {{ .name }}
 spec:
@@ -25,15 +25,4 @@ spec:
               value: "8080"
             - name: HOST
               value: "0.0.0.0"
-            {{- range .secrets }}
-            - name: {{ .name }}
-              valueFrom:
-                secretKeyRef:
-                  name: {{ $.Values.api.secret }}
-                  key: {{ .value }}
-            {{- end }}
-          envFrom:
-            - configMapRef:
-                name: {{ .name }}-config
-
 {{- end }}

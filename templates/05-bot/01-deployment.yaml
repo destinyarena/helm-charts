@@ -1,8 +1,8 @@
-{{- with .Values.faceit }}
+{{- with .Values.bot }}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .name }}-deployment
+  name: {{ .name }}
   labels:
     app: {{ .name }}
 spec:
@@ -29,7 +29,11 @@ spec:
             - name: {{ .name }}
               valueFrom:
                 secretKeyRef:
-                  name: {{ $.Values.faceit.secret }}
+                  name: {{ $.Values.bot.secret }}
                   key: {{ .value }}
             {{- end }}
+          envFrom:
+            - configMapRef:
+                name: {{ .name }}-config
+
 {{- end }}
