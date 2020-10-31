@@ -16,24 +16,16 @@ spec:
         app: {{ .name }}
     spec:
       containers:
-        - name: {{ .name }}
-          image: {{ .image }}
-          ports:
-            - containerPort: 8080
-          env:
-            - name: PORT
-              value: "8080"
-            - name: HOST
-              value: "0.0.0.0"
-            {{- range .secrets }}
-            - name: {{ .name }}
-              valueFrom:
-                secretKeyRef:
-                  name: {{ $.Values.bot.secret }}
-                  key: {{ .value }}
-            {{- end }}
-          envFrom:
-            - configMapRef:
-                name: {{ .name }}-config
-
+      - name: {{ .name }}
+        image: {{ .image }}
+        volumeMounts:
+        - name: config
+          mountPath: /config
+      volumes:
+      - name: config
+        configMap:
+           name: {{ .name }}
+           items:
+           - key: config.yaml
+             path: config.yaml
 {{- end }}

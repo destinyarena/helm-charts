@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.registration.name }}
+  labels:
+    app: {{ .Values.registration.name }}
+spec:
+  replicas: {{ .Values.registration.replicas }}
+  selector:
+    matchLabels:
+      app: {{ .Values.registration.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.registration.name }}
+    spec:
+      containers:
+        - name: {{ .Values.registration.name }}
+          image: {{ .Values.registration.image }}
+          ports:
+            - containerPort: 8080
+          env:
+            - name: PORT
+              value: "8080"
+            - name: HOST
+              value: "0.0.0.0"
+          envFrom:
+            - configMapRef:
+                name: {{ .Values.registration.name }}

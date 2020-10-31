@@ -6,7 +6,9 @@
 bot:
   name: bot
   replicas: 1
-  image: destinyarena/bot:latest
+  image: 
+    repository: harbor.ar2ro.io/destinyarena/bot
+    tag: latest
 
   service:
     type: ClusterIP
@@ -25,41 +27,13 @@ bot:
 tls:
   enabled: false
 
-# API
-api:
-  name: api
-  replicas: 2
-  image: destinyarena/api:latest
-
-  service:
-    type: LoadBalancer
-
-  secret: api-secrets
-  secrets:
-    - name: SECRET_DISCORD
-      value: discord
-    - name: SECRET_FACEIT
-      value: faceit
-    - name: SECRET_FACEIT_API_KEY
-      value: faceit-api-key
-    - name: SECRET_FACEIT_USER_KEY
-      value: faceit-user-key
-    - name: SECRET_BUNGIE
-      value: bungie
-    - name: SECRET_BUNGIE_API_KEY
-      value: bungie-api-key
-    - name: SECRET_JWT
-      value: jwt
-    - name: SECRET_API_KEY
-      value: api-key
-    - name: SECRET_DB_PASSWORD
-      value: db-password
-
 # Website
 website:
   name: website
   replicas: 2
-  image: destinyarena/website:latest
+  image: 
+    repository: harbor.ar2ro.io/destinyarena/website
+    tag: latest
 
   service:
     type: LoadBalancer
@@ -68,7 +42,9 @@ website:
 profiles:
   name: profiles
   replicas: 2
-  image: destinyarena/profiles:latest
+  image: 
+    repository: harbor.ar2ro.io/destinyarena/profiles
+    tag: latest
   secret: profiles-secrets
   secrets:
     - name: SECRET_DB_PASSWORD
@@ -78,7 +54,9 @@ profiles:
 faceit:
   name: faceit
   replicas: 2
-  image: destinyarena/faceit:latest
+  image: 
+    repository: harbor.ar2ro.io/destinyarena/faceit
+    tag: latest
   secret: faceit-secrets
   secrets:
     - name: FACEIT_USER_TOKEN
@@ -86,10 +64,29 @@ faceit:
     - name: FACEIT_API_TOKEN
       value: faceit-api-key
 
+authorization:
+  name: authorization
+  replicas: 2
+  image: 
+    repository: harbor.ar2ro.io/destinyarena/authorization
+    tag: latest
+
+registration:
+  name: registration
+  replicas: 2
+  image: 
+    repository: harbor.ar2ro.io/destinyarena/registration:latest
+
 ingress:
   name: destinyarena
   host: destinyarena.app
   paths:
+    - path: "/api/v2/oauth/"
+      service: authorization
+      port: 80
+    - path: "/api/v2/registration"
+      service: registration
+      port: 80
     - path: "/api/"
       service: api
       port: 80
