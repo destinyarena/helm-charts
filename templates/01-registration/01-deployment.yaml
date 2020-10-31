@@ -16,7 +16,8 @@ spec:
     spec:
       containers:
         - name: {{ .Values.registration.name }}
-          image: {{ .Values.registration.image }}
+          image: "{{ .Values.registration.image.repository }}:{{ .Values.registration.image.tag }}"
+          imagePullPolicy: {{ .Values.registration.image.pullPolicy }}
           ports:
             - containerPort: 8080
           env:

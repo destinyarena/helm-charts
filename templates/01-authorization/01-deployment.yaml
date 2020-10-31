@@ -16,7 +16,8 @@ spec:
     spec:
       containers:
         - name: {{ .Values.authorization.name }}
-          image: {{ .Values.authorization.image }}
+          image: "{{ .Values.authorization.image.repository }}:{{ .Values.authorization.image.tag }}"
+          imagePullPolicy: {{ .Values.authorization.image.pullPolicy }}
           ports:
             - containerPort: 8080
           env:

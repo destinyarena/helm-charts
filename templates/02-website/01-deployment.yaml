@@ -17,7 +17,8 @@ spec:
     spec:
       containers:
         - name: {{ .name }}
-          image: {{ .image }}
+          image: "{{ .image.repository }}:{{ .image.tag }}"
+          imagePullPolicy: {{ .image.pullPolicy }}
           ports:
             - containerPort: 8080
           env:
