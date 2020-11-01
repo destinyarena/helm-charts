@@ -40,7 +40,7 @@ profiles:
   replicas: 2
   image:
     repository: harbor.ar2ro.io/destinyarena/profiles
-    tag: 0bb9602075ccf73db36cf3909c617ddf04ad0dc2
+    tag: d60e7ffa1b3930f4d6f8a84e754c3efc3b9a68b2
     pullPolicy: IfNotPresent
   secret: profiles-secrets
   secrets:
