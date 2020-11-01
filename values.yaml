@@ -6,14 +6,12 @@
 bot:
   name: bot
   replicas: 1
-  image: 
+  image:
     repository: harbor.ar2ro.io/destinyarena/bot
     tag: latest
     pullPolicy: IfNotPresent
-
   service:
     type: ClusterIP
-
   secret: bot-secrets
   secrets:
     - name: AUTH_TOKEN
@@ -24,27 +22,23 @@ bot:
       value: faceit-user-token
     - name: FACEIT_API_TOKEN
       value: faceit-api-token
-
 tls:
   enabled: false
-
 # Website
 website:
   name: website
   replicas: 2
-  image: 
+  image:
     repository: harbor.ar2ro.io/destinyarena/website
     tag: latest
     pullPolicy: IfNotPresent
-
   service:
     type: LoadBalancer
-
 # Users gRPC
 profiles:
   name: profiles
   replicas: 2
-  image: 
+  image:
     repository: harbor.ar2ro.io/destinyarena/profiles
     tag: latest
     pullPolicy: IfNotPresent
@@ -52,12 +46,11 @@ profiles:
   secrets:
     - name: SECRET_DB_PASSWORD
       value: db-password
-
 # Faceit gRPC
 faceit:
   name: faceit
   replicas: 2
-  image: 
+  image:
     repository: harbor.ar2ro.io/destinyarena/faceit
     tag: latest
     pullPolicy: IfNotPresent
@@ -67,23 +60,20 @@ faceit:
       value: faceit-user-key
     - name: FACEIT_API_TOKEN
       value: faceit-api-key
-
 authorization:
   name: authorization
   replicas: 2
-  image: 
+  image:
     repository: harbor.ar2ro.io/destinyarena/authorization
-    tag: latest
+    tag: v1.0.0
     pullPolicy: IfNotPresent
-
 registration:
   name: registration
   replicas: 2
-  image: 
+  image:
     repository: harbor.ar2ro.io/destinyarena/registration
     tag: latest
     pullPolicy: IfNotPresent
-
 ingress:
   name: destinyarena
   host: destinyarena.app
