@@ -30,7 +30,7 @@ website:
   replicas: 2
   image:
     repository: harbor.ar2ro.io/destinyarena/website
-    tag: abed4c033b8a5abec5b55efbd4a9d79c3aa19f27
+    tag: bf6a38d40f3a39d9ec88016ef4710bf389764a7d
     pullPolicy: IfNotPresent
   service:
     type: LoadBalancer
