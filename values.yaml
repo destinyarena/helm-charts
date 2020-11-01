@@ -52,7 +52,7 @@ faceit:
   replicas: 2
   image:
     repository: harbor.ar2ro.io/destinyarena/faceit
-    tag: cfdba2fe54c53aae1c9c4d04b8702de10df9df13
+    tag: 7ddd406ed0ac102e901541ffb2f581d2da825aee
     pullPolicy: IfNotPresent
   secret: faceit-secrets
   secrets:
