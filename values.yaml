@@ -65,7 +65,7 @@ authorization:
   replicas: 2
   image:
     repository: harbor.ar2ro.io/destinyarena/authorization
-    tag: v1.0.0
+    tag: 2c89ddf0fd3fec7b843e54c26f8f383930a6cb01
     pullPolicy: IfNotPresent
 registration:
   name: registration
