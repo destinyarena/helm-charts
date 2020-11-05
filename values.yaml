@@ -72,7 +72,7 @@ registration:
   replicas: 2
   image:
     repository: harbor.ar2ro.io/destinyarena/registration
-    tag: 8a60a7b8216c94fdeeabe7045e859ba9926a8962
+    tag: 2222ba9e3e6c62ef855091edccde65eab93cf3dc
     pullPolicy: IfNotPresent
 ingress:
   name: destinyarena
