@@ -8,7 +8,7 @@ bot:
   replicas: 1
   image:
     repository: harbor.ar2ro.io/destinyarena/bot
-    tag: 7c7ef81227e7ee6a695969b06895c944e2f247fe
+    tag: b7f3ead3c28f508bdaee67a3e915b52237fe92b1
     pullPolicy: IfNotPresent
   service:
     type: ClusterIP
