@@ -7,7 +7,7 @@ bot:
   name: bot
   replicas: 1
   image:
-    repository: harbor.ar2ro.io/destinyarena/bot
+    repository: destinyarena/bot
     tag: 62bd7f6d57daf56a39fc0bb74c5793c5c6a11a08
     pullPolicy: IfNotPresent
   service:
@@ -29,7 +29,7 @@ website:
   name: website
   replicas: 2
   image:
-    repository: harbor.ar2ro.io/destinyarena/website
+    repository: destinyarena/website
     tag: 29823dc737ed66e624f8c19d49fecdff903999b8
     pullPolicy: IfNotPresent
   service:
@@ -39,7 +39,7 @@ profiles:
   name: profiles
   replicas: 2
   image:
-    repository: harbor.ar2ro.io/destinyarena/profiles
+    repository: destinyarena/profiles
     tag: ead299c20d9267644df465e4153c8227208486e0
     pullPolicy: IfNotPresent
   secret: profiles-secrets
@@ -51,7 +51,7 @@ faceit:
   name: faceit
   replicas: 2
   image:
-    repository: harbor.ar2ro.io/destinyarena/faceit
+    repository: destinyarena/faceit
     tag: 9c20f30585b69a525a36365587856889f19fbb3c
     pullPolicy: IfNotPresent
   secret: faceit-secrets
@@ -64,14 +64,14 @@ authorization:
   name: authorization
   replicas: 2
   image:
-    repository: harbor.ar2ro.io/destinyarena/authorization
+    repository: destinyarena/authorization
     tag: 023859886f588402099dbbba2a4223c1241a177f
     pullPolicy: IfNotPresent
 registration:
   name: registration
   replicas: 2
   image:
-    repository: harbor.ar2ro.io/destinyarena/registration
+    repository: destinyarena/registration
     tag: bd4865db658b6dd6011a92b2aa4230702818207a
     pullPolicy: IfNotPresent
 ingress:
