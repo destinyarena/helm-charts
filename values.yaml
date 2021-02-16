@@ -30,7 +30,7 @@ website:
   replicas: 2
   image:
     repository: destinyarena/website
-    tag: 29823dc737ed66e624f8c19d49fecdff903999b8
+    tag: e38d48c35ff300ce07efa4fd765e349df39c63fa
     pullPolicy: IfNotPresent
   service:
     type: LoadBalancer
