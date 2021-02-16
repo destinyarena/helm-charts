@@ -52,7 +52,7 @@ faceit:
   replicas: 2
   image:
     repository: destinyarena/faceit
-    tag: 9c20f30585b69a525a36365587856889f19fbb3c
+    tag: bda24de84c4b2791dbb104a2720b2c64d93bded7
     pullPolicy: IfNotPresent
   secret: faceit-secrets
   secrets:
