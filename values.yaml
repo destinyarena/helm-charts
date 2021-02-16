@@ -65,7 +65,7 @@ authorization:
   replicas: 2
   image:
     repository: destinyarena/authorization
-    tag: 023859886f588402099dbbba2a4223c1241a177f
+    tag: 7f8b4fe036234948f4855704f1d5b5d099b4503d
     pullPolicy: IfNotPresent
 registration:
   name: registration
