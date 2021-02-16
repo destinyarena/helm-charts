@@ -40,7 +40,7 @@ profiles:
   replicas: 2
   image:
     repository: destinyarena/profiles
-    tag: ead299c20d9267644df465e4153c8227208486e0
+    tag: c7ced3c1641cf7a4a27f0f1d6a1400f83d158531
     pullPolicy: IfNotPresent
   secret: profiles-secrets
   secrets:
