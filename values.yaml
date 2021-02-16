@@ -72,7 +72,7 @@ registration:
   replicas: 2
   image:
     repository: destinyarena/registration
-    tag: bd4865db658b6dd6011a92b2aa4230702818207a
+    tag: 4eedcc7907f3098ff12b62a16fd2b09c30dd195b
     pullPolicy: IfNotPresent
 ingress:
   name: destinyarena
