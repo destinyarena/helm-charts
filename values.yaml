@@ -8,7 +8,7 @@ bot:
   replicas: 1
   image:
     repository: destinyarena/bot
-    tag: 62bd7f6d57daf56a39fc0bb74c5793c5c6a11a08
+    tag: latest
     pullPolicy: IfNotPresent
   service:
     type: ClusterIP
@@ -30,7 +30,7 @@ website:
   replicas: 2
   image:
     repository: destinyarena/website
-    tag: 29823dc737ed66e624f8c19d49fecdff903999b8
+    tag: latest
     pullPolicy: IfNotPresent
   service:
     type: LoadBalancer
@@ -40,7 +40,7 @@ profiles:
   replicas: 2
   image:
     repository: destinyarena/profiles
-    tag: ead299c20d9267644df465e4153c8227208486e0
+    tag: latest
     pullPolicy: IfNotPresent
   secret: profiles-secrets
   secrets:
@@ -52,7 +52,7 @@ faceit:
   replicas: 2
   image:
     repository: destinyarena/faceit
-    tag: 9c20f30585b69a525a36365587856889f19fbb3c
+    tag: latest
     pullPolicy: IfNotPresent
   secret: faceit-secrets
   secrets:
@@ -65,14 +65,14 @@ authorization:
   replicas: 2
   image:
     repository: destinyarena/authorization
-    tag: 023859886f588402099dbbba2a4223c1241a177f
+    tag: latest
     pullPolicy: IfNotPresent
 registration:
   name: registration
   replicas: 2
   image:
     repository: destinyarena/registration
-    tag: bd4865db658b6dd6011a92b2aa4230702818207a
+    tag: latest
     pullPolicy: IfNotPresent
 ingress:
   name: destinyarena
