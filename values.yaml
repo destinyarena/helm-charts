@@ -8,7 +8,7 @@ bot:
   replicas: 1
   image:
     repository: destinyarena/bot
-    tag: c371bd0495c1482d22c9ee41d51e6d699bca5e32
+    tag: 18f7e8d88ab11919efb3e1e68156be7eaa90172f
     pullPolicy: IfNotPresent
   service:
     type: ClusterIP
