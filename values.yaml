@@ -8,7 +8,7 @@ bot:
   replicas: 1
   image:
     repository: ghcr.io/destinyarena/discord-bot
-    tag: deb6b8bb294a85be3ce0862fa5f983b1e7249b09
+    tag: latest
     pullPolicy: IfNotPresent
   service:
     type: ClusterIP
