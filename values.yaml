@@ -7,7 +7,7 @@ bot:
   name: bot
   replicas: 1
   image:
-    repository: destinyarena/bot
+    repository: ghcr.io/destinyarena/discord-bot
     tag: deb6b8bb294a85be3ce0862fa5f983b1e7249b09
     pullPolicy: IfNotPresent
   service:
@@ -29,7 +29,7 @@ website:
   name: website
   replicas: 2
   image:
-    repository: destinyarena/website
+    repository: ghcr.io/destinyarena/website
     tag: latest
     pullPolicy: IfNotPresent
   service:
@@ -39,7 +39,7 @@ profiles:
   name: profiles
   replicas: 2
   image:
-    repository: destinyarena/profiles
+    repository: ghcr.io/destinyarena/profiles
     tag: latest
     pullPolicy: IfNotPresent
   secret: profiles-secrets
@@ -51,7 +51,7 @@ faceit:
   name: faceit
   replicas: 2
   image:
-    repository: destinyarena/faceit
+    repository: ghcr.io/destinyarena/faceit
     tag: latest
     pullPolicy: IfNotPresent
   secret: faceit-secrets
@@ -64,14 +64,14 @@ authorization:
   name: authorization
   replicas: 2
   image:
-    repository: destinyarena/authorization
+    repository: ghcr.io/destinyarena/authorization
     tag: latest
     pullPolicy: IfNotPresent
 registration:
   name: registration
   replicas: 2
   image:
-    repository: destinyarena/registration
+    repository: ghcr.io/destinyarena/registration
     tag: latest
     pullPolicy: IfNotPresent
 ingress:
